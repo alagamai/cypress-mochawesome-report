@@ -1,0 +1,122 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-05-27T17:15:03.689Z",
+    "end": "2023-05-27T17:15:06.201Z",
+    "duration": 2512,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "04b9d8d4-8b45-4a6a-9b90-af595083a2f4",
+      "title": "",
+      "fullFile": "cypress/e2e/2-advanced-examples/aliasing.cy.js",
+      "file": "cypress/e2e/2-advanced-examples/aliasing.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3011b3a8-f168-499a-b2b7-e175a370134d",
+          "title": "Aliasing",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": ".as() - alias a DOM element for later use",
+              "fullTitle": "Aliasing .as() - alias a DOM element for later use",
+              "timedOut": null,
+              "duration": 511,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// https://on.cypress.io/as\n// Alias a DOM element for use later\n// We don't have to traverse to the element\n// later in our code, we reference it with @\ncy.get('.as-table').find('tbody>tr').first().find('td').first().find('button').as('firstBtn');\n// when we reference the alias, we place an\n// @ in front of its name\ncy.get('@firstBtn').click();\ncy.get('@firstBtn').should('have.class', 'btn-success').and('contain', 'Changed');",
+              "err": {},
+              "uuid": "eb32649c-2e31-4935-8602-73c52e24bff3",
+              "parentUUID": "3011b3a8-f168-499a-b2b7-e175a370134d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": ".as() - alias a route for later use",
+              "fullTitle": "Aliasing .as() - alias a route for later use",
+              "timedOut": null,
+              "duration": 970,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Alias the route to wait for its response\ncy.intercept('GET', '**/comments/*').as('getComment');\n// we have code that gets a comment when\n// the button is clicked in scripts.js\ncy.get('.network-btn').click();\n// https://on.cypress.io/wait\ncy.wait('@getComment').its('response.statusCode').should('eq', 200);",
+              "err": {},
+              "uuid": "976890c8-1cff-4507-9dfc-6be3525a4c96",
+              "parentUUID": "3011b3a8-f168-499a-b2b7-e175a370134d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "eb32649c-2e31-4935-8602-73c52e24bff3",
+            "976890c8-1cff-4507-9dfc-6be3525a4c96"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1481,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+	"name": "cypress-mochawesome-report",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"cy:run": "sudo npx cypress run",
+		"cy:merge-json": "npx mochawesome-merge cypress/reports/*.json > cypress/reports/mochawesome-ALL.json",
+		"cy:group-html": "npx mochawesome-report-generator cypress/reports/mochawesome-ALL.json"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"cypress": "^12.13.0"
+	},
+	"devDependencies": {
+		"mochawesome": "^7.1.3",
+		"mochawesome-merge": "^4.3.0",
+		"mochawesome-report-generator": "^6.2.0"
+	}
+}
