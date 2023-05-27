@@ -8,28 +8,29 @@ VSCode: https://code.visualstudio.com/download </br>
 NPM: https://www.npmjs.com/get-npm </br>
 NodeJS: https://nodejs.org/en/download
 
-# Steps to generate mochawesome reporto  
+# Steps to generate mochawesome report:
   1. Install the required packages as dev dependencies:
 
    - npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator 
 
  2. Run your Cypress tests with the Mochawesome reporter. Update your Cypress configuration in cypress.config.js as mentioned before:
 
-module.exports = defineConfig({
-  e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
-    reporter: 'mochawesome',
-    reporterOptions: {
-      reportDir: 'cypress/reports',
-      overwrite: false,
-    },
-    screenshots: {
-	enabled: true,
-    },
-  },
-});
+     	module.exports = defineConfig({
+     
+	     e2e: {
+   	 	setupNodeEvents(on, config) {
+      		// implement node event listeners here
+    	     },
+    	reporter: 'mochawesome',
+    	reporterOptions: {
+      		reportDir: 'cypress/reports',
+      		overwrite: false,
+    	},
+    	screenshots: {
+		enabled: true,
+    	},
+  	},
+	});
 
 3. Run your Cypress tests using: npx cypress run
 
