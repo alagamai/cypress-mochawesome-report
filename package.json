@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"cy:run": "sudo npx cypress run",
+		"cy:del-report": "sudo rm -rf mochawesome-report && cd cypress && sudo rm -rf reports",
 		"cy:merge-json": "npx mochawesome-merge cypress/reports/*.json > cypress/reports/mochawesome-ALL.json",
 		"cy:group-html": "npx mochawesome-report-generator cypress/reports/mochawesome-ALL.json"
 	},
